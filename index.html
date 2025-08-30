@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For My Love 💖</title>
+  <meta name="description" content="A little love note—just for you." />
+  <style>
+    :root{
+      --bg1:#ff8fb1;
+      --bg2:#ffd1dc;
+      --bg3:#fff0f5;
+      --text:#3a0a1a;
+      --accent:#ff4d6d;
+      --card:#ffffffcc;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: 'Poppins', system-ui, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, var(--bg3), transparent),
+                  radial-gradient(1200px 800px at 80% 90%, var(--bg2), transparent),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;}
+    .heart{
+      position:absolute;width:18px;height:18px;
+      transform: rotate(45deg);background: var(--accent);
+      opacity:.75;animation: floatUp linear infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    }
+    .heart:before,.heart:after{
+      content:'';position:absolute;width:18px;height:18px;
+      background: var(--accent);border-radius:50%;
+    }
+    .heart:before{ left:-9px; }
+    .heart:after{ top:-9px; }
+    @keyframes floatUp{
+      from{ transform: translateY(0) rotate(45deg) scale(0.9); }
+      to{ transform: translateY(-120vh) rotate(45deg) scale(1.2); }
+    }
+
+    header{text-align:center;padding:48px 16px 16px;}
+    .badge{display:inline-block;padding:6px 12px;
+      background:#ffffff88;color:var(--accent);border-radius:999px;
+      font-weight:600;backdrop-filter: blur(6px);}
+    h1{margin:14px 0 8px;font-size: clamp(28px, 5vw, 48px);}
+    .subtitle{font-size: clamp(14px, 2.6vw, 18px);opacity:.9;}
+
+    .card{max-width:920px;margin:24px auto;background: var(--card);
+      border-radius:24px;padding:24px;backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.7);}
+    .message{font-size: clamp(16px, 2.8vw, 20px);line-height:1.8;}
+    .quote{font-style:italic;border-left:4px solid var(--accent);
+      padding:8px 16px;margin:16px 0;background: rgba(255,255,255,.6);
+      border-radius:12px;}
+    .reveal{margin-top:12px;padding:18px;background:#fff;
+      border-radius:16px;border:1px dashed #ffb7c5;text-align:center;
+      font-weight:600;}
+
+    footer{text-align:center;margin:28px 0 40px;font-size:13px;opacity:.8;}
+    .grid{display:grid;grid-template-columns: repeat(12, 1fr);gap:16px;}
+    .tile{background:#fff;border-radius:18px;padding:18px;
+      border:1px solid #ffe3ea;text-align:center;font-weight:600;}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <header>
+    <span class="badge">A little note for you</span>
+    <h1>Hey Sonali, I adore you 💘</h1>
+    <p class="subtitle">Every day with you is my favorite chapter.</p>
+  </header>
+
+  <main class="card">
+    <div class="message">
+      <p>From sunrise whispers to midnight giggles, you color my world in a thousand shades of happy. I don’t need a perfect day—just a moment with you.</p>
+      <p class="quote">“If I had a flower for every time I think of you… I could walk through my garden forever.”</p>
+      <p><strong>I love you very much Sonali. ❤️</strong></p>
+      <p>Thank you for being you—kind, brave, hilarious, and wonderfully you. I hope this little page makes you smile the way you make my heart do tiny cartwheels.</p>
+
+      <div class="reveal">
+        You are my today and all of my tomorrows. 💞
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:22px;">
+      <div class="tile" style="grid-column: span 4;">You + Me = Home</div>
+      <div class="tile" style="grid-column: span 4;">I choose you. Always.</div>
+      <div class="tile" style="grid-column: span 4;">More hugs. More sunsets.</div>
+    </div>
+  </main>
+
+  <footer>
+    Made with love, a few lines of code, and a million heartbeats. 🫶
+  </footer>
+
+  <script>
+    // Floating hearts background
+    const container = document.getElementById('hearts');
+    const total = 24;
+    for(let i=0;i<total;i++){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.bottom = (-10 - Math.random()*100) + 'px';
+      const dur = 6 + Math.random()*8;
+      const delay = -Math.random()*dur;
+      h.style.animationDuration = dur + 's';
+      h.style.animationDelay = delay + 's';
+      container.appendChild(h);
+    }
+  </script>
+</body>
+</html>
